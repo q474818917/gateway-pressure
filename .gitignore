@@ -1,0 +1,14 @@
+disconf
+.idea
+.DS_Store
+.project
+.metadata/
+.settings/
+.classpath
+target
+*.via
+*.tmp
+*.err
+*.log
+*.log.*
+*.iml
