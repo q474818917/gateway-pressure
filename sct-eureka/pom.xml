@@ -10,7 +10,6 @@
 
   <artifactId>sct-eureka</artifactId>
   <name>sct-eureka</name>
-  <version>${sct.version}</version>
   
   <dependencies>
     <dependency>

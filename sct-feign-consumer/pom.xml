@@ -11,13 +11,12 @@
 
   <artifactId>sct-feign-consumer</artifactId>
   <name>sct-feign-consumer</name>
-  <version>${sct.version}</version>
   
   <dependencies>
 	  <dependency>
 		  <groupId>com.eastspider</groupId>
 		  <artifactId>sct-api</artifactId>
-		  <version>${sct.version}</version>
+		  <version>${project.version}</version>
 	  </dependency>
 	  <dependency>
 		  <groupId>org.springframework.cloud</groupId>

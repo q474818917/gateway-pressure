@@ -10,7 +10,6 @@
 
   <artifactId>sct-api</artifactId>
   <name>sct-api</name>
-  <version>${sct.version}</version>
   <dependencies>
 
   </dependencies>
