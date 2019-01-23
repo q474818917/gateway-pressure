@@ -11,8 +11,16 @@
   <artifactId>sct-common</artifactId>
   <name>sct-common</name>
   <version>${sct.version}</version>
-  <dependencies>
 
+  <dependencies>
+      <dependency>
+          <groupId>org.redisson</groupId>
+          <artifactId>redisson</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+      </dependency>
   </dependencies>
   
     <build>
