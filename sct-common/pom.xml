@@ -10,7 +10,6 @@
 
   <artifactId>sct-common</artifactId>
   <name>sct-common</name>
-  <version>${sct.version}</version>
 
   <dependencies>
       <dependency>
