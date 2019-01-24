@@ -14,6 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -34,15 +35,10 @@ public class UserService {
         JSONObject jsonObject = new JSONObject();
 
         RLock rLock = redissonClient.getLock("user-" + id);;
-        boolean res = false;
+
         try {
-            res = rLock.tryLock(100, 10, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(res);
-        if (res) {
-            try {
+            System.out.println("当前时间---->" + System.currentTimeMillis());
+            if(rLock.tryLock(0, 2, TimeUnit.SECONDS)) {
                 User user = userMapper.selectById(id);
                 ServiceInstance localInstance = client.getLocalServiceInstance();
 
@@ -50,11 +46,13 @@ public class UserService {
                 jsonObject.put("serviceId", localInstance.getServiceId());
                 jsonObject.put("host", localInstance.getHost());
                 jsonObject.put("port", localInstance.getPort());
-            } finally {
-                rLock.unlock();
             }
+            System.out.println("当前时间---->" + System.currentTimeMillis());
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            rLock.unlock();
         }
-
         return jsonObject;
     }
 }
