@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: zuul-gateway
+
+
+zuul:
+  routes:
+    tests:
+      path: /test
+      url: http://192.168.59.2:8080/api
