@@ -6,8 +6,7 @@
 压测工具：wrk
 压测参数：
 1、wrk -c12 -t6 -d30s --timeout 1s http://localhost:8088/api/test
-2、
-3、
+2、针对异步gateway，可以提高并发数
 ```
 
 ## 压测项目：
@@ -21,7 +20,7 @@
 + zuul-gateway
 + kong-gateway
 + gravitee-gateway
-+ springcloud-gateway   todo
++ springcloud-gateway
 
 
 ## 压测报告：
