@@ -61,3 +61,20 @@ Running 30s test @ http://192.168.59.3:8000
 Requests/sec:   6105.55
 Transfer/sec:      1.27MB
 ```
+
++ springcloud-gateway
+```$xslt
+Running 30s test @ http://192.168.59.3:8080/api/test
+  8 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    18.64ms   11.14ms 118.46ms   75.13%
+    Req/Sec   671.76     93.51     0.99k    68.71%
+  160653 requests in 30.04s, 19.46MB read
+Requests/sec:   5347.19
+Transfer/sec:    663.23KB
+```
+
+#### 压测结论
++ 针对异步的gateway，可以尝试调高并发数，能获得较高的qps
++ 总得测算kong的qps最大
++ 这里的zuul是1.x版本，同步的gateway，而springcloud-gateway是异步版本，相对性能较高
